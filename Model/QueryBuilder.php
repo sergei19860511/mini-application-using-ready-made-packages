@@ -54,14 +54,11 @@ class QueryBuilder
         $currentPage = 3;
         $page = $data['item'] ?? 1;
         $select = $this->queryFactory->newSelect();
-        $select->cols(['post_id', 'title', 'content', 'username'])
+        $select->cols(['post_id', 'title', 'content'])
             ->from($table)
             ->setPaging($currentPage)
             ->page($page)
-            ->leftJoin(
-                'users',
-                'posts.id_user = users.id'
-            );
+            ->orderBy(['post_id DESC']);
 
         $sth = $this->pdo->prepare($select->getStatement());
         $sth->execute($select->getBindValues());
@@ -77,7 +74,7 @@ class QueryBuilder
     public function getOne($table, $id): array
     {
         $select = $this->queryFactory->newSelect();
-        $select->cols(['post_id','title', 'content']);
+        $select->cols(['post_id','title', 'content', 'id_user']);
         $select->from($table)
             ->where('post_id = :post_id')
             ->bindValue('post_id', $id);
@@ -86,7 +83,7 @@ class QueryBuilder
 
         $sth->execute($select->getBindValues());
 
-        return $result = $sth->fetch(PDO::FETCH_ASSOC);
+        return $sth->fetch(PDO::FETCH_ASSOC);
 
     }
 

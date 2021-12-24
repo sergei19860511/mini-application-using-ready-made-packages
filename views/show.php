@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'One Post']) ?>
+<?php $this->layout('layout', ['title' => 'Статья']) ?>
 
 <div class="container">
     <div class="row">
@@ -7,8 +7,8 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Content</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Содержание</th>
                 </tr>
                 </thead>
                 <tbody>

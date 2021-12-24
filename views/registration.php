@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Register']) ?>
+<?php $this->layout('layout', ['title' => 'Регистрация']) ?>
 <?php
 echo flash()->display();
 ?>

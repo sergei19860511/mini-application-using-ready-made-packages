@@ -2,7 +2,6 @@
 
 namespace Controllers;
 
-use League\Plates\Engine;
 use Model\QueryBuilder;
 
 class DeletePostController extends AbstractController

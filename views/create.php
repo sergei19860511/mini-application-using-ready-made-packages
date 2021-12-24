@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Create Post']) ?>
+<?php $this->layout('layout', ['title' => 'Добавить статью']) ?>
 
 <?php
 echo flash()->display();
@@ -15,7 +15,7 @@ echo flash()->display();
                     <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success">Add Post</button>
+                    <button class="btn btn-success">Добавить статью</button>
                 </div>
             </form>
         </div>

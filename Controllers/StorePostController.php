@@ -25,17 +25,18 @@ class StorePostController extends AbstractController
      * @param Engine $templates
      */
 
-    public function __construct(QueryBuilder $queryBuilder, Engine $templates)
+    private $auth;
+
+    public function __construct(QueryBuilder $queryBuilder, Engine $templates, Auth $auth)
     {
         $this->templates = $templates;
         $this->queryBuilder = $queryBuilder;
+        $this->auth = $auth;
     }
 
     public function index()
     {
-        $auth = new Auth(Connection::getInstance());
-
-        if ($auth->isLoggedIn()) {
+        if ($this->auth->isLoggedIn()) {
             echo $this->templates->render('create');
         } else {
             Flash::message('Добавлять статьи могут только авторизованные пользователи', 'error');

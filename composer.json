@@ -18,7 +18,7 @@
       "Servises\\": "Servises/",
       "database\\": "database/",
       "Controllers\\": "Controllers/",
-      "Model\\": "Molel/"
+      "Model\\": "Model/"
     }
   },
   "require-dev": {

@@ -2,12 +2,10 @@
 
 namespace Controllers;
 
-use database\Connection;
 use Delight\Auth\Auth;
 use JasonGrimes\Paginator;
 use League\Plates\Engine;
 use Model\QueryBuilder;
-use SimpleMail;
 
 class HomeController extends AbstractController
 {
@@ -47,8 +45,7 @@ class HomeController extends AbstractController
 
         if ($this->auth->isLoggedIn()) {
             $_SESSION['id_user'] = $this->auth->getUserId();
-            $username = $this->auth->getUsername();
-            $this->templates->addData(['username' => $username], ['layout']);
+            $_SESSION['username'] = $this->auth->getUsername();
         }
 
         $role = $this->auth->getRoles();
@@ -61,6 +58,11 @@ class HomeController extends AbstractController
         $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
         $paginator->setMaxPagesToShow(5);
 
-        echo $this->templates->render('index.view', ['posts' => $posts, 'role' => $role, 'paginator' => $paginator]);
+        echo $this->templates->render('index.view',
+            [
+                'posts' => $posts,
+                'role' => $role,
+                'paginator' => $paginator,
+            ]);
     }
 }

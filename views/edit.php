@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Update Post']) ?>
+<?php $this->layout('layout', ['title' => 'Редактировать статью']) ?>
 
 <?php
 echo flash()->display();
@@ -8,11 +8,11 @@ echo flash()->display();
         <div class="col-md-8 offset-md-2">
             <form action="/update/<?= $post['post_id'] ?>" method="post">
                 <div class="form-group">
-                    <label for="">Title</label>
+                    <label for="">Название</label>
                     <input class="form-control" type="text" name="title" value="<?= $post['title']; ?>">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success">Edit Post</button>
+                    <button class="btn btn-success">Редактировать статью</button>
                 </div>
             </form>
         </div>

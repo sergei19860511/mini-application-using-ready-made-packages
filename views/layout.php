@@ -20,41 +20,27 @@
         <ul class="navbar-nav mr-auto">
         </ul>
         <ul class="navbar-nav ml-auto">
-            <?= $this->e($username)?>
+            <?= $this->e($_SESSION['username'])?>
             <?php
-            if ($username): ?>
+            if ($_SESSION['id_user']): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout">Выйти</a>
+                    <a class="nav-link" href="/logout">Выйти</a>
                 </li>
                 <?php else: ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="login">Войти</a>
+                    <a class="nav-link" href="/login">Войти</a>
                 </li>
             <?php endif; ?>
         </ul>
     </div>
 </nav>
-<div class="row">
-    <div class="col-xl-12">
 
-        <div class="border-faded bg-faded p-3 mb-g d-flex mt-3">
-            <input type="text" id="js-filter-contacts" name="filter-contacts"
-                   class="form-control shadow-inset-2 form-control-lg" placeholder="">
-        </div>
-    </div>
-</div>
 <?=$this->section('content')?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <footer class="page-footer" role="contentinfo">
     <div class="d-flex align-items-center flex-1 text-muted">
-        <span class="hidden-md-down fw-700">2020 © Учебный проект</span>
-    </div>
-    <div>
-        <ul class="list-table m-0">
-            <li><a href="intel_introduction.html" class="text-secondary fw-700">Home</a></li>
-            <li class="pl-3"><a href="info_app_licensing.html" class="text-secondary fw-700">About</a></li>
-        </ul>
+        <span class="hidden-md-down fw-700">2021 © Учебный проект</span>
     </div>
 </footer>
 
@@ -62,34 +48,5 @@
 
 <script src="../js/vendors.bundle.js"></script>
 <script src="../js/app.bundle.js"></script>
-<script>
 
-    $(document).ready(function()
-    {
-
-        $('input[type=radio][name=contactview]').change(function()
-        {
-            if (this.value == 'grid')
-            {
-                $('#js-contacts .card').removeClassPrefix('mb-').addClass('mb-g');
-                $('#js-contacts .col-xl-12').removeClassPrefix('col-xl-').addClass('col-xl-4');
-                $('#js-contacts .js-expand-btn').addClass('d-none');
-                $('#js-contacts .card-body + .card-body').addClass('show');
-
-            }
-            else if (this.value == 'table')
-            {
-                $('#js-contacts .card').removeClassPrefix('mb-').addClass('mb-1');
-                $('#js-contacts .col-xl-4').removeClassPrefix('col-xl-').addClass('col-xl-12');
-                $('#js-contacts .js-expand-btn').removeClass('d-none');
-                $('#js-contacts .card-body + .card-body').removeClass('show');
-            }
-
-        });
-
-        //initialize filter
-        initApp.listFilter($('#js-contacts'), $('#js-filter-contacts'));
-    });
-
-</script>
 </html>

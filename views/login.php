@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Autorization']) ?>
+<?php $this->layout('layout', ['title' => 'Авторизация']) ?>
 <?php
 echo flash()->display();
 ?>
